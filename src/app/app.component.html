@@ -1,0 +1,229 @@
+<router-outlet></router-outlet>
+
+<div class="portfolio-container">
+  <!-- Sidebar (Hidden on Desktop) -->
+  <div class="sidebar" [class.open]="isSidebarOpen">
+    <button class="close-btn" (click)="toggleSidebar()">✖</button>
+    <ul>
+      <li><a href="#home" (click)="toggleSidebar()">Home</a></li>
+      <li><a href="#about" (click)="toggleSidebar()">About Me</a></li>
+      <li><a href="#skills" (click)="toggleSidebar()">Skills</a></li>
+      <li><a href="#projects" (click)="toggleSidebar()">Projects</a></li>
+      <!-- <li><button class="but1" (click)="downloadResume()">
+          <i class="fas fa-download"></i> Resume
+        </button>
+      </li> -->
+      <li><a href="#resume" (click)="downloadResume()">Resume</a></li>
+      <li><a href="#contact" (click)="toggleSidebar()">Contact</a></li>
+      <li>
+        <a (click)="toggleTheme()">
+          <i [ngClass]="isDarkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Navbar (Hidden on Mobile) -->
+  <nav class="navbar">
+    <button class="menu-btn" (click)="toggleSidebar()">☰</button>
+    <div class="logo" >
+      <span class="logo-text">Lopita</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="but1" (click)="downloadResume()">
+          <i class="fas fa-download"></i> Resume
+        </button>
+      </li>
+      <li>
+        <a (click)="toggleTheme()">
+          <i [ngClass]="isDarkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+
+<!-- Home Section -->
+<section id="home" class="section about">
+  <div class="home-container">
+    
+    <div class="home-content">
+      <h1>Hello, I'm <span class="highlight">Lopita Mishra</span> 😊</h1>
+      <h3>I'm an Aspiring Business Intelligence Analyst who enjoys designing creative and delightful experiences.</h3>
+
+      <div class="homeSocials">
+        <a href="https://github.com/MLopita" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/lopita-mishra-096534191/" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:lopitamishra2001@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+    <div class="home-image">
+      <img src="https://img.freepik.com/free-vector/hand-coding-concept-illustration_114360-8173.jpg?ga=GA1.1.117542238.1742992211&semt=ais_hybrid" alt="Lopita Mishra">
+    </div>
+  </div>
+</section>
+
+ <!-- About Me Section -->
+<section id="about" class="section about">
+  <div class="about-content">
+    <img src="https://avatars.githubusercontent.com/u/190205469?v=4" alt="My Photo" class="profile-pic" />
+    <div>
+      <h1>I'm <span class="highlight">Lopita Mishra</span></h1>
+      <p>
+        An Aspiring Business Intelligence Analyst with a specialization in data analysis, visualization, and reporting using Power BI, Excel, and SQL with a passion for learning with an endless supply of optimism and curiosity.
+        Having adequate skills, self motivated and
+        curious, with a keen interest in building user-centric products. Looking
+        forward to honing my skills in a challenging environment.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <h2>Skills & Technologies</h2>
+    <div class="skill-list">
+      <span><i class="devicon-java-plain"></i> PowerBI</span>
+      <span><i class="devicon-angularjs-plain"></i> Advanced Excel</span>
+      <span><i class="devicon-mysql-plain"></i> MySQL</span>
+      <span><i class="devicon-css3-plain"></i> Python</span>
+      <span><i class="devicon-spring-plain"></i> JIRA</span>
+      <span><i class="devicon-hibernate-plain"></i> BRD</span>
+      <span><i class="fa-solid fa-database"></i> Agile</span>
+      <span><i class="fa-brands fa-connectdevelop"></i> Scrum</span>
+      <span><i class="devicon-mongodb-plain"></i> Six Sigma</span>
+      <span><i class="devicon-amazonwebservices-plain"></i> Project Management</span>
+      <span><i class="devicon-postman-plain"></i> Statistical Analysis</span>
+      <span><i class="devicon-html5-plain"></i> Data Warehousing</span>
+      <span><i class="devicon-github-original"></i> GitHub</span>
+      <span><i class="fa-solid fa-code"></i> Data Analysis & visualization</span>
+    </div>
+  </section>
+  
+  
+  
+  <!-- Projects Section -->
+  <!-- <section id="projects" class="section projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card" *ngFor="let project of projects">
+        <img [src]="project.image" [alt]="project.title" class="project-img" />
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.summary }}</p>
+        <p><strong>Tech Stack:</strong> {{ project.techStack }}</p>
+        <a [href]="project.link" target="_blank" class="btn">View Project</a>
+      </div>
+    </div>
+  </section> -->
+
+
+  <!-- Project List -->
+<section *ngIf="!selectedProject" id="projects" class="section projects">
+  <h2>Projects</h2>
+  <div class="projects-container">
+    <div class="project-card" *ngFor="let project of projects">
+      <img [src]="project.image" [alt]="project.title" class="project-img" />
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.summary }}</p>
+      <p><strong>Tech Stack:</strong> {{ project.techStack }}</p>
+      <button (click)="viewDetails(project)" class="btn">View Project Details</button>
+    </div>
+  </div>
+</section>
+
+  <!-- Project Detail View -->
+<div *ngIf="selectedProject">
+  <button (click)="backToList()" class="btn">← Back to Projects</button>
+
+  <h2>{{ selectedProject.title }}</h2>
+
+  <h3>Tools Used:</h3>
+  <p>{{ selectedProject.techStack }}</p>
+
+  <h3>Objective:</h3>
+  <p>{{ selectedProject.objective }}</p>
+
+  <h3>Project Description:</h3>
+  <ul>
+    <li *ngFor="let line of selectedProject.summary.split('.')">
+      {{ line.trim() }}<span *ngIf="line.trim()">.</span>
+    </li>
+  </ul>
+
+  <h3>Key Visuals (Screenshots):</h3>
+  <div *ngFor="let visual of selectedProject.visuals">
+    <h4>{{ visual.title }}</h4>
+    <ul>
+      <li *ngFor="let point of visual.points">{{ point }}</li>
+    </ul>
+  </div>
+
+  <h3>Insights & Impact:</h3>
+  <ul>
+    <li *ngFor="let insight of selectedProject.insights">{{ insight }}</li>
+  </ul>
+</div>
+  <!-- GitHub Contributions Section -->
+  <!-- <section id="github-calendar" class="section">
+    <h2>My GitHub Contributions</h2>
+    <div class="calendar"></div>  
+  </section>   -->
+
+  <!-- Resume Section -->
+  <!-- <section id="resume" class="section resume">
+    <h2>Resume</h2>
+    <p>Looking for a Passionate Developer? Here’s My Resume!🔥</p>
+    <div class="socials">
+      <button class="but1" (click)="downloadResume()">
+        <i class="fas fa-download"></i> Resume
+      </button>
+    </div>
+  </section> -->
+  
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p>Let's connect! Reach out to me via social media or email.</p>
+  
+    <div class="contact-container">
+      <!-- Left Side: Contact Info & Social Links -->
+      <div class="contact-info">
+        <div class="socials">
+          <a href="tel:+91 7848910741"><i class="fas fa-phone"></i></a>
+          <a href="https://github.com/MLopita" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/lopita-mishra-096534191/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:lopitamishra2001@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+  
+      <!-- Right Side: Contact Form -->
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="input-group">
+          <input type="text" formControlName="name" placeholder="Your Name" required />
+        </div>
+        <div class="input-group">
+          <input type="email" formControlName="email" placeholder="Your Email" required />
+        </div>
+        <div class="input-group">
+          <textarea formControlName="message" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Send Message</button>
+      </form>
+    </div>
+  </section>
+  
+</div>
