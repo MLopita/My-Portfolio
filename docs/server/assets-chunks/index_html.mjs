@@ -1,7 +1,7 @@
 export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
   <meta charset="utf-8">
   <title>Portfolio</title>
-  <base href="/Portfolio/">
+  <base href="/My-Portfolio/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- FontAwesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">

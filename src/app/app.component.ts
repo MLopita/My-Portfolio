@@ -86,9 +86,9 @@ export class AppComponent implements AfterViewInit {
   //   }
   // ];
 
-  goToProjectDetails(title: string) {
-    this.router.navigate(['/project-detail', title]);
-  }
+  // goToProjectDetails(title: string) {
+  //   this.router.navigate(['/project-detail', title]);
+  // }
 
 
   projects = [
